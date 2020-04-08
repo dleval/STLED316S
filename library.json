@@ -2,13 +2,11 @@
   "name": "STLED316S",
   "keywords": "display, spi, led, driver, stled316s",
   "description": "Arduino library for STLED316S 6-digit LED controller with keyscan",
-  "repository":
-  {
+  "repository": {
     "type": "git",
     "url": "https://github.com/dleval/STLED316S.git"
   },
-  "authors":
-  [
+  "authors": [
     {
       "name": "david Leval",
       "url": "https://github.com/dleval",
@@ -20,7 +18,7 @@
   "platforms": "*",
   "export": {
         "exclude": [
-            "docs"
+            "extras"
         ]
     }
 }
