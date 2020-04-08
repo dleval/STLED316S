@@ -29,7 +29,7 @@ Arduino Library for STLED316S LED controller with keyscan
 
 ## Schematic example
 
-See the electronic diagram available in the 'docs' directory.
+See the electronic diagram available in the 'extras' directory.
 
 ## Installation
 
