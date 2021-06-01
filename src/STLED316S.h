@@ -144,6 +144,7 @@ class STLED316S_Common
 		uint8_t _digit_brightness[3];
 		uint8_t _LED_brightness[4];
 		uint8_t _digDP;
+		uint8_t _LED_state;  //!< Memory of LEDs state
 
 	protected:
 		uint8_t _nbrOfDigit;
