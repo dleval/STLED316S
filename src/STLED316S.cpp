@@ -1,24 +1,9 @@
 /**
- * \file STLED316S.cpp
- * \brief Arduino Library for STLED316S LED controller with keyscan
- * \author David Leval
- * \version 1.0.0
- * \date 08/04/2020
- * 
- * Resources:
- * Uses SPI.h for SPI operation
- *
- * The STLED316S is a LED controller and driver that interface microprocessors 
- * to 7-segments LED displays through a serial 3-wire interface (compatible SPI)\n
- * Features :\n
- * - LED driver with 14 outputs (8 segments/6 digits common-anode)
- * - A single LED digit output (DIG1_LED) can be used to drive up to 8 discrete LEDs
- * - 8-step dimming circuit to control brightness of individual LEDs for LED digit
- * - Power 5VDC / can operate with 3.3 V interface voltages
- * \n
- * 
- * Release :
- * 		- v1.0.0 (08/04/2020) : Initial version
+ * @file STLED316S.cpp
+ * @brief Arduino Library for STLED316S LED controller with keyscan
+ * @author David Leval
+ * @version 1.0.1
+ * @date 02/06/2021
  * 
  * STLED316S library is free software: you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -78,11 +63,10 @@ STLED316S::STLED316S(uint8_t nbrOfDigit, uint8_t STBpin, uint8_t CLKpin, uint8_t
 /* Class STLED316S_SPI Public Functions                                       */
 /******************************************************************************/
 /**
- * \fn void STLED316S_SPI::writeData(uint8_t *data, uint8_t lenght)
- * \brief Sending data to the STLED316S with SPI
+ * @brief Sending data to the STLED316S with SPI
  * 
- * \param *data : Address of the first byte to send
- * \param lenght : Number of data to send
+ * @param *data : Address of the first byte to send
+ * @param lenght : Number of data to send
  */
 void STLED316S_SPI::writeData(uint8_t *data, uint8_t lenght)
 {
@@ -108,13 +92,12 @@ void STLED316S_SPI::writeData(uint8_t *data, uint8_t lenght)
 /* Class STLED316S_SPI Private Functions                                      */
 /******************************************************************************/
 /**
- * \fn uint8_t STLED316S_SPI::SwapBit(uint8_t byte)
- * \brief Endian converter\n
+ * @brief Endian converter\n
  * Swap every bit in 8-bit data\n
  * b7 b6 b5 b4 b3 b2 b1 b0 -> b0 b1 b2 b3 b4 b5 b6 b7
  * 
- * \param byte : Data to convert
- * \return : Result
+ * @param byte : Data to convert
+ * @return : Result
  */
 uint8_t STLED316S_SPI::SwapBit(uint8_t byte)
 {
@@ -127,11 +110,10 @@ uint8_t STLED316S_SPI::SwapBit(uint8_t byte)
 /* Class STLED316S Public Functions                                           */
 /******************************************************************************/
 /**
- * \fn void STLED316S::writeData(uint8_t *data, uint8_t lenght)
- * \brief Sending data to the STLED316S without SPI
+ * @brief Sending data to the STLED316S without SPI
  * 
- * \param *data : Address of the first byte to send
- * \param lenght : Number of data to send
+ * @param *data : Address of the first byte to send
+ * @param lenght : Number of data to send
  */
 void STLED316S::writeData(uint8_t *data, uint8_t lenght)
 {
@@ -152,11 +134,10 @@ void STLED316S::writeData(uint8_t *data, uint8_t lenght)
 }
 
 /**
- * \fn uint8_t STLED316S::readData(uint8_t address)
- * \brief Reading data byte from STLED316S
+ * @brief Reading data byte from STLED316S
  * 
- * \param address : Address of the data
- * \return data : Data read
+ * @param address : Address of the data
+ * @return data : Data read
  */
 uint8_t STLED316S::readData(uint8_t address)
 {
@@ -191,10 +172,9 @@ uint8_t STLED316S::readData(uint8_t address)
 /* Class STLED316S Private Functions                                          */
 /******************************************************************************/
 /**
- * \fn void STLED316S::sendSW_SPI(uint8_t data)
- * \brief Simulate SPI transfer with delay
+ * @brief Simulate SPI transfer with delay
  * 		  (freq. = 500kHz)
- * \param data : byte to send
+ * @param data : byte to send
  */
 void STLED316S::sendSW_SPI(uint8_t data)
 {
@@ -214,8 +194,7 @@ void STLED316S::sendSW_SPI(uint8_t data)
 /* Class STLED316S_Common Public Functions                                    */
 /******************************************************************************/
 /**
- * \fn void STLED316S_Common::begin(void)
- * \brief Initializes the STLED316S driver
+ * @brief Initializes the STLED316S driver
  * 
  */
 void STLED316S_Common::begin(void)
@@ -232,17 +211,16 @@ void STLED316S_Common::begin(void)
 }
 
 /**
- * \fn void STLED316S_Common::begin(uint8_t digA, uint8_t digB, uint8_t digC, uint8_t digD, uint8_t digE, uint8_t digF, uint8_t digG, uint8_t digDP)
- * \brief Initializes the STLED316S driver with segments parameters
+ * @brief Initializes the STLED316S driver with segments parameters
  * 
- * \param digA : Output pin of STLED316S for segment a
- * \param digB : Output pin of STLED316S for segment b
- * \param digC : Output pin of STLED316S for segment c
- * \param digD : Output pin of STLED316S for segment d
- * \param digE : Output pin of STLED316S for segment e
- * \param digF : Output pin of STLED316S for segment f
- * \param digG : Output pin of STLED316S for segment g
- * \param digDP : Output pin of STLED316S for segment DP
+ * @param digA : Output pin of STLED316S for segment a
+ * @param digB : Output pin of STLED316S for segment b
+ * @param digC : Output pin of STLED316S for segment c
+ * @param digD : Output pin of STLED316S for segment d
+ * @param digE : Output pin of STLED316S for segment e
+ * @param digF : Output pin of STLED316S for segment f
+ * @param digG : Output pin of STLED316S for segment g
+ * @param digDP : Output pin of STLED316S for segment DP
  */
 void STLED316S_Common::begin(uint8_t digA, uint8_t digB, uint8_t digC, uint8_t digD, uint8_t digE, uint8_t digF, uint8_t digG, uint8_t digDP)
 {
@@ -270,8 +248,7 @@ void STLED316S_Common::begin(uint8_t digA, uint8_t digB, uint8_t digC, uint8_t d
 }
 
 /**
- * \fn void STLED316S_Common::displayON(void)
- * \brief Turn ON the STLED316S display
+ * @brief Turn ON the STLED316S display
  * 
  */
 void STLED316S_Common::displayON(void)
@@ -281,8 +258,7 @@ void STLED316S_Common::displayON(void)
 }
 
 /**
- * \fn void STLED316S_Common::displayOFF(void)
- * \brief Turn OFF the STLED316S display
+ * @brief Turn OFF the STLED316S display
  * 
  */
 void STLED316S_Common::displayOFF(void)
@@ -292,11 +268,10 @@ void STLED316S_Common::displayOFF(void)
 }
 
 /**
- * \fn void STLED316S_Common::setBrightness(uint8_t brightness)
- * \brief Set the LED display brightness.
+ * @brief Set the LED display brightness.
  * 
- * \param DIGITnum : DIGITall->All or Digit number (DIGITn1..DIGITn6)
- * \param brightness : (3 significant bits, valid range 0..7 (1/16 .. 14/16 dutycycle) 
+ * @param DIGITnum : DIGITall->All or Digit number (DIGITn1..DIGITn6)
+ * @param brightness : (3 significant bits, valid range 0..7 (1/16 .. 14/16 dutycycle) 
  */
 void STLED316S_Common::setBrightness(DIGITnum_t DIGITnum, uint8_t brightness)
 {
@@ -339,8 +314,7 @@ void STLED316S_Common::setBrightness(DIGITnum_t DIGITnum, uint8_t brightness)
 }
 
 /**
- * \fn void STLED316S_Common::clearDisplay(void)
- * \brief Clear display
+ * @brief Clear display
  * 
  */
 void STLED316S_Common::clearDisplay(void)
@@ -352,11 +326,10 @@ void STLED316S_Common::clearDisplay(void)
 }
 
 /**
- * \fn void STLED316S_Common::dispRAW(DIGITnum_t DIGITnum, uint8_t raw)
- * \brief Controls the LEDs of a digit with raw data
+ * @brief Controls the LEDs of a digit with raw data
  * 
- * \param DIGITnum : DIGITall->All or Digit number (DIGITn1..DIGITn6)
- * \param raw : b7->SEG8 / b6->SEG7 / b5->SEG6 / b4->SEG5 / b3->SEG4 / b2->SEG3 / b1->SEG2 / b0->SEG1
+ * @param DIGITnum : DIGITall->All or Digit number (DIGITn1..DIGITn6)
+ * @param raw : b7->SEG8 / b6->SEG7 / b5->SEG6 / b4->SEG5 / b3->SEG4 / b2->SEG3 / b1->SEG2 / b0->SEG1
  */
 void STLED316S_Common::dispRAW(DIGITnum_t DIGITnum, uint8_t raw)
 {
@@ -371,10 +344,9 @@ void STLED316S_Common::dispRAW(DIGITnum_t DIGITnum, uint8_t raw)
 }
 
 /**
- * \fn void STLED316S_Common::dispRAW(uint8_t *raw)
- * \brief Controls the LEDs of all digit with raw data buffer
+ * @brief Controls the LEDs of all digit with raw data buffer
  * 
- * \param *raw : Address of the first byte
+ * @param *raw : Address of the first byte
  * b7->SEG8 / b6->SEG7 / b5->SEG6 / b4->SEG5 / b3->SEG4 / b2->SEG3 / b1->SEG2 / b0->SEG1
  */
 void STLED316S_Common::dispRAW(uint8_t *raw)
@@ -390,10 +362,9 @@ void STLED316S_Common::dispRAW(uint8_t *raw)
 }
 
 /**
- * \fn void STLED316S_Common::dispUdec(uint32_t nbr)
- * \brief Display a unsigned number
+ * @brief Display a unsigned number
  * 
- * \param nbr : Unsigned Decimal Number
+ * @param nbr : Unsigned Decimal Number
  */
 void STLED316S_Common::dispUdec(uint32_t nbr)
 {
@@ -413,10 +384,9 @@ void STLED316S_Common::dispUdec(uint32_t nbr)
 }
 
 /**
- * \fn void STLED316S_Common::dispHex(uint32_t data)
- * \brief Display a hexadecimal data
+ * @brief Display a hexadecimal data
  * 
- * \param data : Hex
+ * @param data : Hex
  */
 void STLED316S_Common::dispHex(uint32_t data)
 {
@@ -427,11 +397,10 @@ void STLED316S_Common::dispHex(uint32_t data)
 }
 
 /**
- * \fn void STLED316S_Common::setDP(DIGITnum_t DIGITnum, uint8_t state)
- * \brief Activation or deactivation of the DP of a digit
+ * @brief Activation or deactivation of the DP of a digit
  * 
- * \param DIGITnum : DIGITall->All or Digit number (DIGITn1..DIGITn6)
- * \param state : 0->OFF, 1->ON
+ * @param DIGITnum : DIGITall->All or Digit number (DIGITn1..DIGITn6)
+ * @param state : 0->OFF, 1->ON
  */
 void STLED316S_Common::setDP(DIGITnum_t DIGITnum, uint8_t state)
 {
@@ -452,11 +421,10 @@ void STLED316S_Common::setDP(DIGITnum_t DIGITnum, uint8_t state)
 
 
 /**
- * \fn void STLED316S_Common::setBrightnessLED(uint8_t LEDnum, uint8_t brightness)
- * \brief Set the LED brightness.
+ * @brief Set the LED brightness.
  * 
- * \param LEDnum : LEDall->All or LED number (LEDn1..LEDn8)
- * \param brightness : (3 significant bits, valid range 0..7 (1/16 .. 14/16 dutycycle) 
+ * @param LEDnum : LEDall->All or LED number (LEDn1..LEDn8)
+ * @param brightness : (3 significant bits, valid range 0..7 (1/16 .. 14/16 dutycycle) 
  */
 void STLED316S_Common::setBrightnessLED(LEDnum_t LEDnum, uint8_t brightness)
 {
@@ -505,11 +473,10 @@ void STLED316S_Common::setBrightnessLED(LEDnum_t LEDnum, uint8_t brightness)
 }
 
 /**
- * \fn void STLED316S_Common::setLED(uint8_t LEDnum, bool state)
- * \brief Set the LED state.
+ * @brief Set the LED state.
  * 
- * \param LEDnum : LEDall->All or LED number (LEDn1..LEDn8)
- * \param state : true or false
+ * @param LEDnum : LEDall->All or LED number (LEDn1..LEDn8)
+ * @param state : true or false
  */
 void STLED316S_Common::setLED(LEDnum_t LEDnum, bool state)
 {

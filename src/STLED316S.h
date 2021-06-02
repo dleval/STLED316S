@@ -1,9 +1,9 @@
 /******************************************************************************
- * \file STLED316S.h
- * \brief Arduino Library for STLED316S LED controller with keyscan (Header)
- * \author David Leval
- * \version 1.0.0
- * \date 08/04/2020
+ * @file STLED316S.h
+ * @brief Arduino Library for STLED316S LED controller with keyscan (Header)
+ * @author David Leval
+ * @version 1.0.0
+ * @date 02/06/2021
  * 
  * Resources:
  * Uses SPI.h for SPI operation
@@ -19,6 +19,8 @@
  * 
  * Release :
  * 		- v1.0.0 (08/04/2020) : Initial version
+ * 		- v1.0.1 (08/04/2020) : Addition of a private variable to save the state of the LEDs 
+ * 								(Contribution of Giovani Luis Franco)
  * 
  * STLED316S library is free software: you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
