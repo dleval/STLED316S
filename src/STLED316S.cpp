@@ -515,14 +515,15 @@ void STLED316S_Common::setLED(LEDnum_t LEDnum, bool state)
 {
 	uint8_t data[2];
     
-    data[0] = STLED316S_DATA_WR | STLED316S_LED_PAGE;
 	if(LEDnum == LEDall) {
-		if(state) data[1] = 0xFF;
-		else data[1] = 0x00;
+		if(state) _LED_state = 0xFF;
+		else _LED_state = 0x00;
 	} else {
-		if(state) data[1] |= LEDnum;
-		else data[1] &= ~LEDnum;
+		if(state) _LED_state |= LEDnum;
+		else _LED_state &= ~LEDnum;
 	}
     
+    data[0] = STLED316S_DATA_WR | STLED316S_LED_PAGE;
+    data[1] = _LED_state;
     writeData(&data[0],2);
 }
