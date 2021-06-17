@@ -2,8 +2,8 @@
  * @file STLED316S.cpp
  * @brief Arduino Library for STLED316S LED controller with keyscan
  * @author David Leval
- * @version 1.0.1
- * @date 02/06/2021
+ * @version 1.0.2
+ * @date 17/06/2021
  * 
  * STLED316S library is free software: you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -20,10 +20,14 @@
 /******************************************************************************/
 /* Constructor Functions                                                      */
 /******************************************************************************/
-STLED316S_SPI::STLED316S_SPI(uint8_t nbrOfDigit)
+STLED316S_Common::STLED316S_Common(uint8_t nbrOfDigit)
+{
+	_nbrOfDigit = nbrOfDigit;
+}
+
+STLED316S_SPI::STLED316S_SPI(uint8_t nbrOfDigit) : STLED316S_Common(nbrOfDigit)
 {
 	pinMode(_STBpin, OUTPUT);
-	_nbrOfDigit = nbrOfDigit;
 
 	//Set chip select to default state
 	digitalWrite(_STBpin, HIGH);
@@ -31,10 +35,9 @@ STLED316S_SPI::STLED316S_SPI(uint8_t nbrOfDigit)
 	SPI.begin();
 }
 
-STLED316S_SPI::STLED316S_SPI(uint8_t nbrOfDigit, uint8_t STBpin)
+STLED316S_SPI::STLED316S_SPI(uint8_t nbrOfDigit, uint8_t STBpin) : STLED316S_Common(nbrOfDigit)
 {
 	pinMode(STBpin, OUTPUT);
-	_nbrOfDigit = nbrOfDigit;
 	_STBpin = STBpin;
 
 	//Set chip select to default state
@@ -43,9 +46,8 @@ STLED316S_SPI::STLED316S_SPI(uint8_t nbrOfDigit, uint8_t STBpin)
 	SPI.begin();
 }
 
-STLED316S::STLED316S(uint8_t nbrOfDigit, uint8_t STBpin, uint8_t CLKpin, uint8_t DATApin)
+STLED316S::STLED316S(uint8_t nbrOfDigit, uint8_t STBpin, uint8_t CLKpin, uint8_t DATApin) : STLED316S_Common(nbrOfDigit)
 {
-	_nbrOfDigit = nbrOfDigit;
 	_STBpin = STBpin;
 	_CLKpin = CLKpin;
 	_DATApin = DATApin;
@@ -493,4 +495,20 @@ void STLED316S_Common::setLED(LEDnum_t LEDnum, bool state)
     data[0] = STLED316S_DATA_WR | STLED316S_LED_PAGE;
     data[1] = _LED_state;
     writeData(&data[0],2);
+}
+
+/**
+ * @brief default implementation of the writing function 
+ */
+void STLED316S_Common::writeData(uint8_t *data, uint8_t lenght)
+{
+
+}
+
+/**
+ * @brief default implementation of the reading function 
+ */
+uint8_t STLED316S_Common::readData(uint8_t address)
+{
+	return 0;
 }
