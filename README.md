@@ -26,7 +26,7 @@ Arduino Library for STLED316S LED controller with keyscan
 - Version 1.0.1 -- Addition of a private variable to save the state of the LEDs.
 - Version 1.0.2 -- Fix vtable linker error 
 - Version 1.0.3 :
-  - Modify default correspondence between the driver outputs and the display segments (STLED316S Display Baord compatibility)
+  - Modify default correspondence between the driver outputs and the display segments (STLED316S Display Board compatibility)
   - Add an example of using the keys interrupt
 
 ## Arduino Compatibility
