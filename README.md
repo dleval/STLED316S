@@ -1,7 +1,7 @@
 # STLED316S
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-![version](https://img.shields.io/badge/version-1.0.2-blue)
+![version](https://img.shields.io/badge/version-1.0.3-blue)
 
 :star: Star us on GitHub — it helps!
 
@@ -25,6 +25,9 @@ Arduino Library for STLED316S LED controller with keyscan
 - Version 1.0.0 -- Intial version
 - Version 1.0.1 -- Addition of a private variable to save the state of the LEDs.
 - Version 1.0.2 -- Fix vtable linker error 
+- Version 1.0.3 :
+  - Modify default correspondence between the driver outputs and the display segments (STLED316S Display Baord compatibility)
+  - Add an example of using the keys interrupt
 
 ## Arduino Compatibility
 
@@ -36,8 +39,11 @@ Arduino Library for STLED316S LED controller with keyscan
 - ESP32 : Not tested
 - ...
 
-## Schematic example
+## Hardware example
 
+***STLED316S Display Board :***
+<p align="center">
+<a><img src="extras/STLED316S_Display_Board_001.jpg" alt="STLED316S Display Board" title="STLED316S Display Board" height="150" /></a></p>
 See the electronic diagram available in the 'extras' directory.
 
 ## Installation
@@ -75,7 +81,7 @@ STLED316S stled(NBR_OF_DIGIT, STB_PIN, CLK_PIN, DATA_PIN);
 
 To initialise the STLED316S it is necessary to call the begin() function.
 
-Without parameters :
+Without parameters (digA = SEG1, digB = SEG2, digC = SEG3 ...) :
 ```Cpp
 stled.begin();
 ```
@@ -95,13 +101,14 @@ Values : (STLED316S outputs) SEG1, SEG2, SEG3, SEG4, SEG5, SEG6, SEG7 or SEG8
 
 Example:
 ```Cpp
-stled.begin(SEG6, SEG5, SEG3, SEG2, SEG1, SEG7, SEG8, SEG4);
+stled.begin(SEG1, SEG2, SEG3, SEG4, SEG5, SEG6, SEG7, SEG8);
 ```
 
 ---
 ## __Example Code__
 - __STLED316S_display.ino__ : Control LED and digit
-- __STLED316S_keyscan.ino__ : Read status of Keyscan
+- __STLED316S_keyscan.ino__ : Reading the keyscan status with polling
+- __STLED316S_keys_interrupt.ino__ : Reading the keyscan status on interruption
 
 ## License
 
