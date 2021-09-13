@@ -7,7 +7,7 @@
 #include <STLED316S.h>
 
 //Number of LED digit connected on driver:
-#define NBR_OF_DIGIT  2
+#define NBR_OF_DIGIT  6
 //Pinout :
 #define STB_PIN       8
 #define CLK_PIN       13
@@ -18,7 +18,7 @@ STLED316S stled(NBR_OF_DIGIT, STB_PIN, CLK_PIN, DATA_PIN);
 
 void setup() {
   //Use the parameters to configure the connection of the digits to the driver:
-  stled.begin(SEG6, SEG5, SEG3, SEG2, SEG1, SEG7, SEG8, SEG4);
+  stled.begin(SEG1, SEG2, SEG3, SEG4, SEG5, SEG6, SEG7, SEG8);
   //begin(uint8_t digA, uint8_t digB, uint8_t digC, uint8_t digD, uint8_t digE, uint8_t digF, uint8_t digG, uint8_t digDP)
   //digA : Output pin of STLED316S for segment a, digB : Output pin of STLED316S for segment b ...
   //Or do not use a parameter to use the default connection:
