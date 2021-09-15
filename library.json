@@ -15,7 +15,7 @@
   ],
   "version": "1.0.3",
   "frameworks": "arduino",
-  "platforms": "*",
+  "platforms": ["atmelavr", "atmelmegaavr", "espressif8266", "atmelsam", "espressif32", "microchippic32", "ststm32", "raspberrypi"],
   "export": {
         "exclude": [
             "extras"
