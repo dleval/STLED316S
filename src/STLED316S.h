@@ -18,13 +18,13 @@
  * \n
  * 
  * Release :
- * 		- v1.0.0 (08/04/2020) : Initial version
- * 		- v1.0.1 (02/06/2021) : Addition of a private variable to save the state of the LEDs 
+ *      - v1.0.0 (08/04/2020) : Initial version
+ *      - v1.0.1 (02/06/2021) : Addition of a private variable to save the state of the LEDs 
  *                              (Contribution of Giovani Luis Franco)
- * 		- v1.0.2 (17/06/2021) : Fix vtable linker error (default implementation of virtual functions )
- * 		- v1.0.3 (13/09/2021) : Modify default correspondence between the driver outputs and the display segments
+ *      - v1.0.2 (17/06/2021) : Fix vtable linker error (default implementation of virtual functions )
+ *      - v1.0.3 (13/09/2021) : Modify default correspondence between the driver outputs and the display segments
  *                              (STLED316S Display Board compatibility)
- * 		- v1.1.0 (16/09/2021) : Add Float display value and signed decimal value
+ *      - v1.1.0 (16/09/2021) : Add Float display value and signed decimal value
  *                              Addition of a keyscan state reading function
  * 
  * STLED316S library is free software: you can redistribute it and/or
