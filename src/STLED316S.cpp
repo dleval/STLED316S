@@ -2,8 +2,8 @@
  * @file STLED316S.cpp
  * @brief Arduino Library for STLED316S LED controller with keyscan
  * @author David Leval
- * @version 1.0.2
- * @date 17/06/2021
+ * @version 1.0.3
+ * @date 13/09/2021
  * 
  * STLED316S library is free software: you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
