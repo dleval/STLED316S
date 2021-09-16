@@ -1,5 +1,5 @@
 
-// STLED316S keyscan sketch (c) 2020 David Leval
+// STLED316S keyscan sketch (c) 2021 David Leval
 // Released under the GPLv3 license to match the rest of the
 // STLED316S library
 
@@ -42,16 +42,14 @@ void setup() {
 }
 
 void loop() {
-  uint8_t data;
-  
   stled.dispUdec(cpt_key);
 
-  data = stled.readData(STLED316S_ADDR_KEY_DATA1);
+  uint16_t keyData = stled.readKeyScan();
 
-  if(data != 0xFF) {
+  if(keyData != 0) {
     cpt_key++;
     Serial.print("data readed : ");
-    Serial.println(data);
+    Serial.println(keyData);
   }
 
   delay(200);

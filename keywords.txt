@@ -4,63 +4,64 @@
 # Class
 #######################################
 
-STLED316S		KEYWORD1
-STLED316S_SPI	KEYWORD1
+STLED316S       KEYWORD1
+STLED316S_SPI   KEYWORD1
 
 #######################################
 # Datatypes
 #######################################
-DIGITnum_t		KEYWORD1
-LEDnum_t		KEYWORD1
+DIGITnum_t      KEYWORD1
+LEDnum_t        KEYWORD1
 
 #######################################
 # Methods and Functions
 #######################################	
 
-begin				KEYWORD2
-writeData			KEYWORD2
-readData			KEYWORD2
-displayON			KEYWORD2
-displayOFF			KEYWORD2
-setBrightness		KEYWORD2
-clearDisplay		KEYWORD2
-dispRAW				KEYWORD2
-dispUdec			KEYWORD2
-dispHex				KEYWORD2
-setDP				KEYWORD2
-setBrightnessLED	KEYWORD2
-setLED				KEYWORD2
+begin               KEYWORD2
+writeData           KEYWORD2
+readData            KEYWORD2
+displayON           KEYWORD2
+displayOFF          KEYWORD2
+setBrightness       KEYWORD2
+clearDisplay        KEYWORD2
+dispRAW             KEYWORD2
+dispUdec            KEYWORD2
+dispHex             KEYWORD2
+dispFloat           KEYWORD2
+dispDec             KEYWORD2
+setDP               KEYWORD2
+setBrightnessLED    KEYWORD2
+setLED              KEYWORD2
+readKeyScan         KEYWORD2
 
 #######################################
 # Constants
 #######################################
-
-STLED316S_DISP_ON_CMD			LITERAL1
-STLED316S_DISP_OFF_CMD			LITERAL1
+STLED316S_DISP_ON_CMD           LITERAL1
+STLED316S_DISP_OFF_CMD          LITERAL1
     
-STLED316S_DATA_WR				LITERAL1
-STLED316S_DATA_RD				LITERAL1
-STLED316S_ADDR_INC				LITERAL1
-STLED316S_ADDR_FIXED			LITERAL1
-STLED316S_CONF1_PAGE			LITERAL1
-STLED316S_DIG_PAGE				LITERAL1
-STLED316S_LED_PAGE				LITERAL1
-STLED316S_BRT_LED_PAGE			LITERAL1
-STLED316S_READ_PAGE				LITERAL1
+STLED316S_DATA_WR               LITERAL1
+STLED316S_DATA_RD               LITERAL1
+STLED316S_ADDR_INC              LITERAL1
+STLED316S_ADDR_FIXED            LITERAL1
+STLED316S_CONF1_PAGE            LITERAL1
+STLED316S_DIG_PAGE              LITERAL1
+STLED316S_LED_PAGE              LITERAL1
+STLED316S_BRT_LED_PAGE          LITERAL1
+STLED316S_READ_PAGE             LITERAL1
 
-STLED316S_ADDR_LED_DATA			LITERAL1
-STLED316S_ADDR_KEY_DATA1		LITERAL1
-STLED316S_ADDR_KEY_DATA2		LITERAL1
+STLED316S_ADDR_LED_DATA         LITERAL1
+STLED316S_ADDR_KEY_DATA1        LITERAL1
+STLED316S_ADDR_KEY_DATA2        LITERAL1
 
-STLED316S_CONF_BRT_CONSTANT		LITERAL1
-STLED316S_CONF_BRT_VARIABLE		LITERAL1
+STLED316S_CONF_BRT_CONSTANT     LITERAL1
+STLED316S_CONF_BRT_VARIABLE     LITERAL1
 
-SEG1			LITERAL1
-SEG2			LITERAL1
-SEG3			LITERAL1
-SEG4			LITERAL1
-SEG5			LITERAL1
-SEG6			LITERAL1
-SEG7			LITERAL1
-SEG8			LITERAL1
-
+SEG1                            LITERAL1
+SEG2                            LITERAL1
+SEG3                            LITERAL1
+SEG4                            LITERAL1
+SEG5                            LITERAL1
+SEG6                            LITERAL1
+SEG7                            LITERAL1
+SEG8                            LITERAL1

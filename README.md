@@ -1,7 +1,7 @@
 # STLED316S
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-![version](https://img.shields.io/badge/version-1.0.3-blue)
+![version](https://img.shields.io/badge/version-1.1.0-blue)
 
 :star: Star us on GitHub — it helps!
 
@@ -18,7 +18,7 @@ Arduino Library for STLED316S LED controller with keyscan
 - Display of raw data, decimal number or hexadecimal number
 - Brightness adjustment of each digit and LED
 - Keyscan reading (possibility on interruption)
-- (option) Hardware SPI -> Development in progress (keyscan not yet available)
+- (option) Hardware SPI (Reading the registers of the STLED316S is not possible using the hardware SPI. In this mode it is not possible to read the status of the Keyscan)
 
 ## Version
 
@@ -28,6 +28,10 @@ Arduino Library for STLED316S LED controller with keyscan
 - Version 1.0.3 :
   - Modify default correspondence between the driver outputs and the display segments (STLED316S Display Board compatibility)
   - Add an example of using the keys interrupt
+- Version 1.1.0 :
+  - Add display float function
+  - Add display signed decimal function
+  - Add keyscan read function
 
 ## Arduino Compatibility
 
@@ -109,6 +113,7 @@ stled.begin(SEG1, SEG2, SEG3, SEG4, SEG5, SEG6, SEG7, SEG8);
 - __STLED316S_display.ino__ : Control LED and digit
 - __STLED316S_keyscan.ino__ : Reading the keyscan status with polling
 - __STLED316S_keys_interrupt.ino__ : Reading the keyscan status on interruption
+- __STLED316S_spi.ino__ : Using hardware SPI 
 
 ## License
 
