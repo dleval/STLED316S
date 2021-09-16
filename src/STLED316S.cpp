@@ -297,23 +297,23 @@ void STLED316S_Common::begin(uint8_t digA, uint8_t digB, uint8_t digC, uint8_t d
     _digDP = digDP;
 
     //b7->SEG8 / b6->SEG7 / b5->SEG6 / b4->SEG5 / b3->SEG4 / b2->SEG3 / b1->SEG2 / b0->SEG1
-    _digitTable[0x0] = digA | digB | digC | digD | digE | digF;			//0
-    _digitTable[0x1] = digB | digC;										//1
-    _digitTable[0x2] = digA | digB | digD | digE | digG;				//2
-    _digitTable[0x3] = digA | digB | digC | digD | digG;				//3
-    _digitTable[0x4] = digB | digC | digF | digG;						//4
-    _digitTable[0x5] = digA | digC | digD | digF | digG;				//5
-    _digitTable[0x6] = digA | digC | digD | digE | digF | digG;			//6
-    _digitTable[0x7] = digA | digB | digC;								//7
-    _digitTable[0x8] = digA | digB | digC | digD | digE | digF | digG;	//8
-    _digitTable[0x9] = digA | digB | digC | digD | digF | digG;			//9
-    _digitTable[0xA] = digA | digB | digC | digE | digF | digG;			//A
-    _digitTable[0xB] = digC | digD | digE | digF | digG;				//b
-    _digitTable[0xC] = digA | digD | digE | digF;						//C
-    _digitTable[0xD] = digB | digC | digD | digE | digG;				//d
-    _digitTable[0xE] = digA | digD | digE | digF | digG;				//E
-    _digitTable[0xF] = digA | digE | digF | digG;						//F
-    _digitTable[CHAR_MINUS] = digG;										//-
+    _digitTable[0x0] = digA | digB | digC | digD | digE | digF;         //0
+    _digitTable[0x1] = digB | digC;                                     //1
+    _digitTable[0x2] = digA | digB | digD | digE | digG;                //2
+    _digitTable[0x3] = digA | digB | digC | digD | digG;                //3
+    _digitTable[0x4] = digB | digC | digF | digG;                       //4
+    _digitTable[0x5] = digA | digC | digD | digF | digG;                //5
+    _digitTable[0x6] = digA | digC | digD | digE | digF | digG;         //6
+    _digitTable[0x7] = digA | digB | digC;                              //7
+    _digitTable[0x8] = digA | digB | digC | digD | digE | digF | digG;  //8
+    _digitTable[0x9] = digA | digB | digC | digD | digF | digG;         //9
+    _digitTable[0xA] = digA | digB | digC | digE | digF | digG;         //A
+    _digitTable[0xB] = digC | digD | digE | digF | digG;                //b
+    _digitTable[0xC] = digA | digD | digE | digF;                       //C
+    _digitTable[0xD] = digB | digC | digD | digE | digG;                //d
+    _digitTable[0xE] = digA | digD | digE | digF | digG;                //E
+    _digitTable[0xF] = digA | digE | digF | digG;                       //F
+    _digitTable[CHAR_MINUS] = digG;                                     //-
     
     begin();
 }
@@ -611,6 +611,19 @@ void STLED316S_Common::setLED(LEDnum_t LEDnum, bool state)
     data[0] = STLED316S_DATA_WR | STLED316S_LED_PAGE;
     data[1] = _LEDstate;
     writeData(&data[0],2);
+}
+
+/**
+ * @brief Read Key scan matrix state
+ * 
+ * @return uint16_t State of Key scan matrix
+ */
+uint16_t STLED316S_Common::readKeyScan(void)
+{
+    uint16_t keyState = 0;
+    keyState = readData(STLED316S_ADDR_KEY_DATA2) << 8;
+    keyState |= readData(STLED316S_ADDR_KEY_DATA1);
+    return keyState;
 }
 
 /**

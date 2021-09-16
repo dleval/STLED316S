@@ -25,6 +25,7 @@
  * 		- v1.0.3 (13/09/2021) : Modify default correspondence between the driver outputs and the display segments
  * 								(STLED316S Display Board compatibility)
  * 		- v1.1.0 (16/09/2021) : Add Float display value and signed decimal value
+ * 								Addition of a keyscan state reading function
  * 
  * STLED316S library is free software: you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License as
@@ -172,6 +173,7 @@ class STLED316S_Common
 		void setDP(DIGITnum_t DIGITnum, uint8_t state);
 		void setBrightnessLED(LEDnum_t LEDnum, uint8_t brightness);
 		void setLED(LEDnum_t LEDnum, bool state);
+		uint16_t readKeyScan(void);
 
 		virtual void writeData(uint8_t *data, uint8_t lenght);
 		virtual uint8_t readData(uint8_t address);

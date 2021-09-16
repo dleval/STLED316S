@@ -27,7 +27,7 @@ void setup() {
   while (!Serial) {
     ; // wait for serial port to connect.
   }
-  Serial.println("\nSTLED316S test program");
+  Serial.println("\nSTLED316S Keys interrupt test program");
   
   //Use the parameters to configure the connection of the digits to the driver:
   stled.begin(SEG1, SEG2, SEG3, SEG4, SEG5, SEG6, SEG7, SEG8);
@@ -56,12 +56,13 @@ void setup() {
 
 void loop() 
 {
-  uint8_t data;
+  uint16_t data;
   
   if(doReadKeys)
   {
-    data = stled.readData(STLED316S_ADDR_KEY_DATA1);
+    data = stled.readKeyScan();
     Serial.print("data readed : ");
+    Serial.println(data);
     stled.dispHex(data);
     doReadKeys = false;
   }

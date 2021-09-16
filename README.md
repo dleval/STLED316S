@@ -1,7 +1,7 @@
 # STLED316S
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-![version](https://img.shields.io/badge/version-1.0.3-blue)
+![version](https://img.shields.io/badge/version-1.1.0-blue)
 
 :star: Star us on GitHub — it helps!
 
@@ -28,6 +28,10 @@ Arduino Library for STLED316S LED controller with keyscan
 - Version 1.0.3 :
   - Modify default correspondence between the driver outputs and the display segments (STLED316S Display Board compatibility)
   - Add an example of using the keys interrupt
+- Version 1.1.0 :
+  - Add display float function
+  - Add display signed decimal function
+  - Add keyscan read function
 
 ## Arduino Compatibility
 
